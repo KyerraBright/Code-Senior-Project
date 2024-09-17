@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designs Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Designs Table</h1>
+    
+    <table id="designs-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Design Name</th>
+                <th>Description</th>
+                <th>Image</th> <!-- Assuming you have an image URL field -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data from MySQL will be inserted here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fetch data from the Express server
+        fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector("#designs-table tbody");
+            
+            // Loop through the data and create table rows dynamically
+            data.forEach(row => {
+                const tr = document.createElement("tr");
+
+                // Assuming `row` contains fields like id, design_name, description, and image_url
+                tr.innerHTML = `
+                    <td>${row.id}</td>
+                    <td>${row.design_name}</td>
+                    <td>${row.description}</td>
+                    <td><img src="${row.image_url}" alt="Design Image"></td> <!-- Optional: Image handling -->
+                `;
+                tableBody.appendChild(tr);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    </script>
+
+</body>
+</html>
