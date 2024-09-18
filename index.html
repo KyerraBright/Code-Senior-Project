@@ -5,27 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designs Table</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
         }
         th, td {
+            border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
         th {
-            background-color: #f4f4f4;
+            background-color: #f2f2f2;
         }
         img {
             width: 50px;
-            height: 50px;
+            height: auto;
         }
     </style>
 </head>
@@ -36,14 +30,15 @@
     <table id="designs-table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Design Name</th>
-                <th>Description</th>
-                <th>Image</th> <!-- Assuming you have an image URL field -->
+                <th>Design</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Image</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Data from MySQL will be inserted here dynamically -->
+            <!-- Rows will be inserted here by JavaScript -->
         </tbody>
     </table>
 
@@ -58,12 +53,13 @@
             data.forEach(row => {
                 const tr = document.createElement("tr");
 
-                // Assuming `row` contains fields like id, design_name, description, and image_url
+                // Create table row with the relevant data
                 tr.innerHTML = `
-                    <td>${row.id}</td>
-                    <td>${row.design_name}</td>
-                    <td>${row.description}</td>
-                    <td><img src="${row.image_url}" alt="Design Image"></td> <!-- Optional: Image handling -->
+                    <td>${row.design}</td>
+                    <td>${row.color}</td>
+                    <td>${row.size}</td>
+                    <td>${row.price}</td>
+                    <td><img src="${row.image_url}" alt="Design Image"></td>
                 `;
                 tableBody.appendChild(tr);
             });

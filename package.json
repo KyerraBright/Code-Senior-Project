@@ -1,0 +1,23 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "test": "echo / error",
+    "start": "node.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyerraBright/Code-Senior-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyerraBright/Code-Senior-Project/issues"
+  },
+  "homepage": "https://github.com/KyerraBright/Code-Senior-Project#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
